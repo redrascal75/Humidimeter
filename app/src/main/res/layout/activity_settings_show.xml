@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <View
+        android:id="@+id/view20dp2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="0" />
+
+    <EditText
+        android:id="@+id/textFieldFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="0"
+        android:autofillHints=""
+        android:clickable="false"
+        android:contextClickable="false"
+        android:ems="10"
+        android:hint="@string/firstNameHint"
+        android:inputType="textPersonName"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/textFieldCountry"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="0"
+        android:autofillHints=""
+        android:clickable="false"
+        android:contextClickable="false"
+        android:ems="10"
+        android:hint="@string/countryCodeHint"
+        android:inputType="textPersonName"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/textFieldPostalCode"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="0"
+        android:autofillHints=""
+        android:clickable="false"
+        android:contextClickable="false"
+        android:ems="10"
+        android:hint="@string/postalCodeHint"
+        android:inputType="textPersonName"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/textFieldCity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="0"
+        android:autofillHints=""
+        android:clickable="false"
+        android:contextClickable="false"
+        android:ems="10"
+        android:hint="@string/cityHint"
+        android:inputType="textPersonName"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <Switch
+        android:id="@+id/switchColdRes"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:text="@string/coldResistant"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switchHeatRes"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:text="@string/heatResistant"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/switchCoronaMode"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:linksClickable="false"
+        android:longClickable="false"
+        android:text="@string/coronaMode"
+        android:textSize="18sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:id="@+id/view40dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:text="@string/btnBack" />
+
+    <Button
+        android:id="@+id/btnSettingEdit"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:text="@string/btnEdit" />
+
+    <Button
+        android:id="@+id/btnDeleteAcc"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:background="@color/orange"
+        android:text="@string/btnDeleteAccount" />
+
+
+</LinearLayout>

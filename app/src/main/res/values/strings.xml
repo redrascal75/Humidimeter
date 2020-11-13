@@ -1,0 +1,44 @@
+<resources>
+    <!-- Strings für Aktivitäts-Namen -->
+    <string name="app_name">Humidimeter</string>
+    <string name="activity_init">Humidimeter Initialisierung</string>
+    <string name="activity_settings_show">Einstellungen Anzeigen</string>
+    <string name="activity_settings_edit">Einstellungen ändern</string>
+
+    <!-- Strings für Initialisierung -->
+    <string name="welcomeText">Herzlich Willkommen bei Humidimeter!</string>
+    <string name="pleaseEnterData">Bitte trage deine Daten ein, damit das Maximum der App erreicht werden kann.</string>
+
+    <!-- Strings für UserDaten -->
+    <string name="firstNameHint">Name</string>
+    <string name="countryCodeHint">Land</string>
+    <string name="postalCodeHint">Postleitzahl</string>
+    <string name="cityHint">Stadt</string>
+    <string name="firstName">TestName</string>
+    <string name="countryCode">Deutschland</string>
+    <string name="postalCode">22767</string>
+    <string name="city">Hamburg</string>
+
+    <!-- Strings für Initialisierung -->
+    <string name="coldResistant">Mir wird schnell kalt</string>
+    <string name="heatResistant">Mir wird schnell heiss</string>
+    <string name="coronaMode">Corona-Modus</string>
+
+    <!-- Strings für Buttons -->
+    <string name="btnNext">Weiter</string>
+    <string name="btnEdit">Ändern</string>
+    <string name="btnSave">Speichern</string>
+    <string name="btnDeleteAccount">Account löschen</string>
+
+    <!-- Strings für Fragmente -->
+    <string name="fragment_home_dry">Home Dry</string>
+    <string name="fragment_home_normal">Home Normal</string>
+    <string name="fragment_home_wet">Home Wet</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="btnBack">Zurück</string>
+    <string name="btnCancel">Abbrechen</string>
+</resources>
