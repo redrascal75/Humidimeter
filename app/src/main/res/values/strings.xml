@@ -2,7 +2,7 @@
     <!-- Strings für Aktivitäts-Namen -->
     <string name="app_name">Humidimeter</string>
     <string name="activity_init">Humidimeter Initialisierung</string>
-    <string name="activity_settings_show">Einstellungen Anzeigen</string>
+    <string name="activity_settings_show">Einstellungen anzeigen</string>
     <string name="activity_settings_edit">Einstellungen ändern</string>
 
     <!-- Strings für Initialisierung -->

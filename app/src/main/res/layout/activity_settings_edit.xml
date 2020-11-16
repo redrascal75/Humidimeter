@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <View
-        android:id="@+id/view20dp"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_weight="0" />
 
     <EditText
         android:id="@+id/textFieldFirstName"
@@ -22,7 +17,7 @@
         android:ems="10"
         android:hint="@string/firstNameHint"
         android:inputType="textPersonName"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="@color/black" />
 
     <EditText
@@ -30,50 +25,51 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="0"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/countryCodeHint"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:autofillHints="" />
+        android:textAlignment="textStart"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/textFieldPostalCode"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="0"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/postalCodeHint"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:autofillHints="" />
+        android:textAlignment="textStart"
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/textFieldCity"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="0"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/cityHint"
         android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:autofillHints="" />
+        android:textAlignment="textStart"
+        android:textColor="@color/black" />
 
     <Switch
         android:id="@+id/switchColdRes"
-        android:layout_width="350dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
+        android:width="230dp"
         android:text="@string/coldResistant"
         android:textSize="18sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Switch
         android:id="@+id/switchHeatRes"
-        android:layout_width="350dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -83,7 +79,7 @@
 
     <Switch
         android:id="@+id/switchCoronaMode"
-        android:layout_width="350dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -99,18 +95,21 @@
 
     <Button
         android:id="@+id/btnSettingSave"
-        android:layout_width="140dp"
+        android:layout_width="365dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5pt"
         android:layout_gravity="center"
         android:layout_weight="0"
-        android:text="@string/btnSave" />
-
+        android:background="#aabbcc"
+        android:text="@string/btnSave"/>
     <Button
         android:id="@+id/btnCancel"
-        android:layout_width="140dp"
+        android:layout_width="365dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5pt"
         android:layout_gravity="center"
         android:layout_weight="0"
+        android:background="@android:color/holo_red_light"
         android:text="@string/btnCancel" />
 
 </LinearLayout>
