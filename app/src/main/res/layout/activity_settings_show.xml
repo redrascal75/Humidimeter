@@ -26,7 +26,7 @@
         android:inputType="textPersonName"
         android:linksClickable="false"
         android:longClickable="false"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black" />
 
     <EditText
@@ -42,7 +42,7 @@
         android:inputType="textPersonName"
         android:linksClickable="false"
         android:longClickable="false"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black" />
 
     <EditText
@@ -58,7 +58,7 @@
         android:inputType="textPersonName"
         android:linksClickable="false"
         android:longClickable="false"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black" />
 
     <EditText
@@ -74,15 +74,16 @@
         android:inputType="textPersonName"
         android:linksClickable="false"
         android:longClickable="false"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/black" />
 
     <Switch
         android:id="@+id/switchColdRes"
-        android:layout_width="350dp"
+        android:layout_width="398dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
+        android:width="398dp"
         android:clickable="false"
         android:contextClickable="false"
         android:linksClickable="false"
@@ -93,10 +94,11 @@
 
     <Switch
         android:id="@+id/switchHeatRes"
-        android:layout_width="350dp"
+        android:layout_width="398dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
+        android:width="398dp"
         android:clickable="false"
         android:contextClickable="false"
         android:linksClickable="false"
@@ -107,10 +109,11 @@
 
     <Switch
         android:id="@+id/switchCoronaMode"
-        android:layout_width="350dp"
+        android:layout_width="398dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
+        android:width="398dp"
         android:clickable="false"
         android:contextClickable="false"
         android:linksClickable="false"
@@ -127,15 +130,17 @@
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="140dp"
+        android:layout_width="365dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:layout_weight="0"
         android:text="@string/btnBack" />
 
     <Button
         android:id="@+id/btnSettingEdit"
-        android:layout_width="140dp"
+        android:layout_width="365dp"
+        android:layout_marginTop="5dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -143,11 +148,13 @@
 
     <Button
         android:id="@+id/btnDeleteAcc"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="37dp"
         android:layout_gravity="center"
         android:layout_weight="0"
         android:background="@color/orange"
+        android:minHeight="50dp"
         android:text="@string/btnDeleteAccount" />
 
 

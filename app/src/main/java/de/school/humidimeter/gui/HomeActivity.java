@@ -39,6 +39,9 @@ public class HomeActivity extends AppCompatActivity {
 
         Fragment fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.)
+
 
 
         //TODO: Request auf REST-Schnittstelle, um die Luftfeuchtigkeit zu erhalten
