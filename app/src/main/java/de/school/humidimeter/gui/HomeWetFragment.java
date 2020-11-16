@@ -26,7 +26,7 @@ public class HomeWetFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        CharSequence charSequence = "Dry Fragment";
+        CharSequence charSequence = "Wet Fragment";
 
         EditText text = view.findViewById(R.id.tempActualWet);
         text.setText(charSequence);

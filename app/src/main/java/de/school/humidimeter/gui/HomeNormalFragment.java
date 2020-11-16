@@ -26,7 +26,7 @@ public class HomeNormalFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        CharSequence charSequence = "Dry Fragment";
+        CharSequence charSequence = "Normal Fragment";
 
         EditText text = view.findViewById(R.id.tempActualNormal);
         text.setText(charSequence);

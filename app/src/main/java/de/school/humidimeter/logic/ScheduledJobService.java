@@ -39,17 +39,14 @@ public class ScheduledJobService extends JobService {
             switch (recommendedVentilationTime) {
                 case 5:
                     //TODO: Schicke Push mit 3-5 Minuten Lüftungsempfehlung
-                    b.putString("humidity", "dry");
                     b.putInt("time", recommendedVentilationTime);
                     break;
                 case 10:
                     //TODO: Schicke Push mit 5-10 Minuten Lüftungsempfehlung
-                    b.putString("humidity", "normal");
                     b.putInt("time", recommendedVentilationTime);
                     break;
                 case 15:
                     //TODO: Schicke Push mit 15-20 Minuten Lüftungsempfehlung
-                    b.putString("humidity", "wet");
                     b.putInt("time", recommendedVentilationTime);
                     break;
                 default:

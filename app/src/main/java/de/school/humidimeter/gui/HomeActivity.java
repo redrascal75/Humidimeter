@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         //TODO: Request auf REST-Schnittstelle, um die Luftfeuchtigkeit zu erhalten
-        int humidity = 70;
+        int humidity = 50;
         if (humidity < 60) {
             fragment = new HomeDryFragment();
             fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
