@@ -1,8 +1,10 @@
 package de.school.humidimeter.gui;
 
 import android.app.job.JobInfo;
+import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
 import android.app.job.JobWorkItem;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -22,6 +24,7 @@ import android.view.View;
 import java.util.List;
 
 import de.school.humidimeter.R;
+import de.school.humidimeter.logic.ScheduledJobService;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
@@ -32,17 +35,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // startJobScheduler();
-
-
-
+        startJobScheduler();
 
         Fragment fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.replace(R.id.)
-
-
 
         //TODO: Request auf REST-Schnittstelle, um die Luftfeuchtigkeit zu erhalten
         int humidity = 50;
@@ -76,8 +72,16 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void startJobScheduler() {
+    void startJobScheduler() {
 //        JobScheduler
+        ComponentName componentName = new ComponentName(this, ScheduledJobService.class);
+        JobInfo info = new JobInfo.Builder(1, componentName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                .setPeriodic(15 * 60 * 1000)
+                .build();
+
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        scheduler.schedule(info);
 
     }
 

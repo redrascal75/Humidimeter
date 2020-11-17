@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -31,11 +32,11 @@ public class HomeNormalFragment extends Fragment {
         EditText text = view.findViewById(R.id.tempActualNormal);
         text.setText(charSequence);
 
-        view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_ventilation_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(HomeNormalFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                //TODO: PUT Request an die REST-Schnittstelle, um das Lüften zu bestätigen
+                Toast.makeText(getContext(), "Lüften wurde eingetragen!", Toast.LENGTH_LONG).show();
             }
         });
     }
