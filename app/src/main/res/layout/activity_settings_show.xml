@@ -79,7 +79,7 @@
 
     <Switch
         android:id="@+id/switchColdRes"
-        android:layout_width="398dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -94,7 +94,7 @@
 
     <Switch
         android:id="@+id/switchHeatRes"
-        android:layout_width="398dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -109,7 +109,7 @@
 
     <Switch
         android:id="@+id/switchCoronaMode"
-        android:layout_width="398dp"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0"

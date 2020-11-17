@@ -105,9 +105,10 @@
 
     <Button
         android:id="@+id/btnInitSave"
-        android:layout_width="301dp"
-        android:layout_height="50dp"
+        android:layout_width="365dp"
+        android:layout_height="62dp"
         android:layout_gravity="center"
+        android:layout_marginTop="5pt"
         android:layout_weight="0"
         android:text="@string/btnNext" />
 </LinearLayout>
