@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|top"
     android:orientation="vertical">
 
 
@@ -15,10 +16,9 @@
 
     <EditText
         android:id="@+id/textFieldFirstName"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
-        android:autofillHints=""
         android:clickable="false"
         android:contextClickable="false"
         android:ems="10"
@@ -27,14 +27,14 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:textAlignment="viewStart"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/textFieldCountry"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
-        android:autofillHints=""
         android:clickable="false"
         android:contextClickable="false"
         android:ems="10"
@@ -43,14 +43,14 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:textAlignment="viewStart"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:autofillHints=""  />
 
     <EditText
         android:id="@+id/textFieldPostalCode"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
-        android:autofillHints=""
         android:clickable="false"
         android:contextClickable="false"
         android:ems="10"
@@ -59,14 +59,14 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:textAlignment="viewStart"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:autofillHints=""  />
 
     <EditText
         android:id="@+id/textFieldCity"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
-        android:autofillHints=""
         android:clickable="false"
         android:contextClickable="false"
         android:ems="10"
@@ -75,7 +75,8 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:textAlignment="viewStart"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:autofillHints=""   />
 
     <Switch
         android:id="@+id/switchColdRes"
@@ -129,8 +130,18 @@
         android:layout_weight="0" />
 
     <Button
+        android:id="@+id/btnBack"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:text="@string/btnBack" />
+
+    <Button
         android:id="@+id/btnSettingEdit"
-        android:layout_width="301dp"
+        android:layout_width="260dp"
+        android:layout_marginTop="5dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_weight="0"
@@ -138,27 +149,14 @@
 
     <Button
         android:id="@+id/btnDeleteAcc"
-        android:layout_width="301dp"
-        android:layout_height="43dp"
+        android:layout_width="260dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="37dp"
         android:layout_gravity="center"
         android:layout_weight="0"
         android:background="@color/orange"
         android:minHeight="50dp"
         android:text="@string/btnDeleteAccount" />
-
-    <View
-        android:id="@+id/view40dp2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_weight="0" />
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="301dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_weight="0"
-        android:text="@string/btnBack" />
 
 
 </LinearLayout>

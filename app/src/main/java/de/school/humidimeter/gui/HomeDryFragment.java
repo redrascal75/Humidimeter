@@ -1,27 +1,25 @@
 package de.school.humidimeter.gui;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.transition.TransitionValues;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import de.school.humidimeter.R;
+import de.school.humidimeter.logic.JSONRequestData;
+import de.school.humidimeter.logic.JSONRequestUser;
+import de.school.humidimeter.logic.MeasuredData;
+import de.school.humidimeter.logic.Person;
 
 public class HomeDryFragment extends Fragment {
+
+    private static final String TAG = "HomeDryFragment";
 
     @Override
     public View onCreateView(
@@ -34,19 +32,53 @@ public class HomeDryFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        JSONRequestData jsonRequestData = new JSONRequestData();
+        MeasuredData mData = jsonRequestData.getDataRequest();
 
-        CharSequence charSequence = "Dry Fragment";
+        JSONRequestUser jsonRequestUser = new JSONRequestUser();
+        Person person = jsonRequestUser.getUserRequest();
 
-        EditText text = view.findViewById(R.id.tempActualDry);
-        text.setText(charSequence);
+        int time = jsonRequestUser.getVentilationRecommendation();
+        Log.d(TAG, "getVentilationRecommendation: " + time);
+
+        CharSequence recommendedVentilationTime;
+
+        if (time == 5) {
+            recommendedVentilationTime = "Bitte für 3 - " + time + " Mintuen lüften!";
+
+        }  else if (time == 10) {
+            recommendedVentilationTime = "Bitte für 5 - " + time + " Mintuen lüften!";
+
+        }  else if (time == 15) {
+            recommendedVentilationTime = "Bitte für " + time + " - 30 Mintuen lüften!";
+
+        } else {
+            recommendedVentilationTime = "";
+        }
+
+        CharSequence lastVentilationDry;
+        if (person.getLastVentilation() == null) {
+            lastVentilationDry = "Keine Lüftung eingetragen!";
+        } else {
+            lastVentilationDry = "Letzte Lüftung: " + person.getLastVentilation();
+        }
+
+        CharSequence tempDry = "Temperatur: " + mData.getTemperature() + "°C";
+        CharSequence humidityDry = "Luftfeuchtigkeit: " + mData.getHumidity() + "%";
+
+        TextView textTemp = view.findViewById(R.id.tempActualDry);
+        textTemp.setText(tempDry);
+        TextView textHumidity = view.findViewById(R.id.humidityActualDry);
+        textHumidity.setText(humidityDry);
+        TextView textLastVent = view.findViewById(R.id.lastVentilationDry);
+        textLastVent.setText(lastVentilationDry);
+        TextView textRecomVentTime = view.findViewById(R.id.pleaseVentilateDry);
+        textRecomVentTime.setText(recommendedVentilationTime);
 
 
-        view.findViewById(R.id.button_ventilation_first).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: PUT Request an die REST-Schnittstelle, um das Lüften zu bestätigen
-                Toast.makeText(getContext(), "Lüften wurde eingetragen!", Toast.LENGTH_LONG).show();
-            }
+        view.findViewById(R.id.button_ventilation_first).setOnClickListener(view1 -> {
+            jsonRequestUser.changeVentilation();
+            Toast.makeText(getContext(), "Lüften wurde eingetragen!", Toast.LENGTH_LONG).show();
         });
     }
 }

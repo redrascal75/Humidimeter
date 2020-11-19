@@ -1,40 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pastelgreen"
+    android:gravity="center|top"
+    android:orientation="vertical"
     tools:context=".gui.HomeNormalFragment">
 
     <TextView
-        android:id="@+id/textview_third"
+        android:id="@+id/textview_second"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_ventilation_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/home_normal_welcome"
+        android:textSize="20sp" />
 
-    <EditText
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="344dp"
+        android:layout_height="215dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/feuchtigkeit"
+        android:src="@drawable/wiese" />
+
+    <TextView
         android:id="@+id/tempActualNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="335dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="108dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_ventilation_second"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="20dp"
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/button_ventilation_second"
+    <TextView
+        android:id="@+id/humidityActualNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ventilation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_third" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="20dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/lastVentilationNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/button_ventilation_second"-->
+<!--        android:layout_width="365dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="@string/ventilation"-->
+<!--        tools:layout_editor_absoluteX="132dp"-->
+<!--        tools:layout_editor_absoluteY="519dp" />-->
+</LinearLayout>

@@ -1,29 +1,21 @@
 package de.school.humidimeter.gui;
 
 import android.app.job.JobInfo;
-import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
-import android.app.job.JobWorkItem;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
-import android.view.View;
-
-import java.util.List;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.school.humidimeter.R;
+import de.school.humidimeter.logic.JSONRequestData;
+import de.school.humidimeter.logic.MeasuredData;
 import de.school.humidimeter.logic.ScheduledJobService;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,22 +27,32 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        startJobScheduler();
+//        startJobScheduler();
 
         Fragment fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+
+
         //TODO: Request auf REST-Schnittstelle, um die Luftfeuchtigkeit zu erhalten
-        int humidity = 50;
-        if (humidity < 60) {
+
+
+        JSONRequestData jsonRequestData = new JSONRequestData();
+        MeasuredData mData = jsonRequestData.getDataRequest();
+
+
+        int humidity = mData.getHumidity();
+        Log.d(TAG, "Luftfeuchtigkeit: " + humidity + "%");
+
+        if (humidity < 30) {
             fragment = new HomeDryFragment();
             fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
 
-        } else if (humidity >= 60 && humidity <= 80) {
+        } else if (humidity >= 30 && humidity <= 70) {
             fragment = new HomeNormalFragment();
             fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
 
-        } else if (humidity > 80) {
+        } else if (humidity > 70) {
             fragment = new HomeWetFragment();
             fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment).commit();
 

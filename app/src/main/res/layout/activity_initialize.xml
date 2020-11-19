@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".gui.MainActivityInitialize">
 
@@ -21,50 +21,50 @@
 
     <EditText
         android:id="@+id/textFieldFirstName"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/firstNameHint"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
+        android:textAlignment="textStart"
         android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/textFieldCountry"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/countryCodeHint"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
+        android:textAlignment="textStart"
         android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/textFieldPostalCode"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/postalCodeHint"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
+        android:textAlignment="textStart"
         android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/textFieldCity"
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="60dp"
         android:layout_weight="0"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/cityHint"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
+        android:textAlignment="textStart"
         android:textColor="@color/black" />
 
     <Switch
@@ -100,15 +100,14 @@
     <View
         android:id="@+id/view40dp"
         android:layout_width="match_parent"
-        android:layout_height="101dp"
+        android:layout_height="60dp"
         android:layout_weight="0" />
 
     <Button
         android:id="@+id/btnInitSave"
-        android:layout_width="365dp"
+        android:layout_width="260dp"
         android:layout_height="62dp"
         android:layout_gravity="center"
-        android:layout_marginTop="5pt"
         android:layout_weight="0"
         android:text="@string/btnNext" />
 </LinearLayout>

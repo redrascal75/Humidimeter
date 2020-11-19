@@ -4,14 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import de.school.humidimeter.R;
+import de.school.humidimeter.logic.JSONRequestData;
+import de.school.humidimeter.logic.JSONRequestUser;
+import de.school.humidimeter.logic.MeasuredData;
+import de.school.humidimeter.logic.Person;
 
 public class HomeNormalFragment extends Fragment {
 
@@ -26,18 +28,32 @@ public class HomeNormalFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        JSONRequestData jsonRequestData = new JSONRequestData();
+        MeasuredData mData = jsonRequestData.getDataRequest();
 
-        CharSequence charSequence = "Normal Fragment";
+        JSONRequestUser jsonRequestUser = new JSONRequestUser();
+        Person person = jsonRequestUser.getUserRequest();
 
-        EditText text = view.findViewById(R.id.tempActualNormal);
-        text.setText(charSequence);
 
-        view.findViewById(R.id.button_ventilation_second).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: PUT Request an die REST-Schnittstelle, um das Lüften zu bestätigen
-                Toast.makeText(getContext(), "Lüften wurde eingetragen!", Toast.LENGTH_LONG).show();
-            }
-        });
+
+
+
+
+
+        CharSequence tempDry = "Temperatur: " + mData.getTemperature() + "°C";
+        CharSequence humidityDry = "Luftfeuchtigkeit: " + mData.getHumidity() + "%";
+        CharSequence lastVentilationDry;
+        if (person.getLastVentilation() == null) {
+             lastVentilationDry = "Keine Lüftung eingetragen!";
+        } else {
+            lastVentilationDry = "Letzte Lüftung: " + person.getLastVentilation();
+        }
+
+        TextView textTemp = view.findViewById(R.id.tempActualNormal);
+        textTemp.setText(tempDry);
+        TextView textHumidity = view.findViewById(R.id.humidityActualNormal);
+        textHumidity.setText(humidityDry);
+        TextView textLastVent = view.findViewById(R.id.lastVentilationNormal);
+        textLastVent.setText(lastVentilationDry);
     }
 }

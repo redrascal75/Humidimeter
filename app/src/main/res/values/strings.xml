@@ -27,10 +27,8 @@
     <!-- Strings für Buttons -->
     <string name="btnNext">Weiter</string>
     <string name="btnEdit">Ändern</string>
-    <string name="btnBack">Zurück</string>
     <string name="btnSave">Speichern</string>
     <string name="btnDeleteAccount">Account löschen</string>
-    <string name="btnCancel">Abbrechen</string>
 
     <!-- Strings für Fragmente -->
     <string name="fragment_home_dry">Home Dry</string>
@@ -39,6 +37,11 @@
     <string name="ventilation">Jetzt Lüften!</string>
 
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="home_dry_welcome">Die Raumluft ist zu trocken!</string>
+    <string name="home_normal_welcome">Die Raumluft ist genau richtig!</string>
+    <string name="home_wet_welcome">Die Raumluft ist zu feucht!</string>
+    <string name="btnBack">Zurück</string>
+    <string name="btnCancel">Abbrechen</string>
+    <string name="feuchtigkeit">Feuchtigkeit</string>
+    <string name="pleaseVentilate">Bitte sofort Lüften!</string>
 </resources>

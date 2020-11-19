@@ -2,17 +2,23 @@ package de.school.humidimeter.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import de.school.humidimeter.R;
+import de.school.humidimeter.logic.JSONRequestUser;
+import de.school.humidimeter.logic.Person;
 
 public class SettingsEditActivity extends AppCompatActivity {
 
+    private static final String TAG = "SettingsEditActivity";
     EditText firstName;
     EditText country;
     EditText postalCode;
@@ -28,34 +34,41 @@ public class SettingsEditActivity extends AppCompatActivity {
 
         initializeTextFields();
 
-        Bundle b = getIntent().getExtras();
-        setTextFields(b);
+        setTextFields();
+
 
         Button btnSave = findViewById(R.id.btnSettingSave);
         btnSave.setOnClickListener(v -> {
-            goToSettingsShowActivity(getChangedTextFields());
+            sendDataToRest();
+            goToSettingsShowActivity();
             //TODO: Senden der Daten an den Raspi
-            //TODO: Übergeben der Daten an den Show-Screen
         });
 
         Button btnCancel = findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(v -> {
-            goToSettingsShowActivity(b);
-            //TODO: Übergeben der Ursprünglichen-Daten an den Show-Screen
+            goToSettingsShowActivity();
         });
+
     }
 
-    private Bundle getChangedTextFields() {
-        Bundle b = new Bundle();
-        b.putCharSequence("firstName", firstName.getText().toString());
-        b.putCharSequence("country", country.getText().toString());
-        b.putCharSequence("postalCode", postalCode.getText().toString());
-        b.putCharSequence("city", city.getText().toString());
-        b.putBoolean("coldRes", coldRes.isChecked());
-        b.putBoolean("heatRes", heatRes.isChecked());
-        b.putBoolean("coronaMode", coronaMode.isChecked());
-        b.putBoolean("changed", true);
-        return b;
+    private void sendDataToRest() {
+        JSONRequestUser jsonRequestUser = new JSONRequestUser();
+
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("firstName", firstName.getText().toString());
+            jsonObject.put("postalCode", postalCode.getText().toString());
+            jsonObject.put("city", city.getText().toString());
+            jsonObject.put("coronaMode", coronaMode.isChecked());
+            jsonObject.put("coldSensitive", coldRes.isChecked());
+            jsonObject.put("heatSensitive", heatRes.isChecked());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Log.d(TAG, "sendDataToRest: " + jsonObject.toString());
+        jsonRequestUser.putUserAccount(jsonObject);
     }
 
     private void initializeTextFields() {
@@ -70,21 +83,22 @@ public class SettingsEditActivity extends AppCompatActivity {
 
     /**
      * Das erhaltene Bundle mit den Daten wird in die TextFelder gesetzt.
-     * @param b Bundle mit den Daten
      */
-    private void setTextFields(Bundle b) {
-        firstName.setText(b.getCharSequence("firstName"));
-        country.setText(b.getCharSequence("country"));
-        postalCode.setText(b.getCharSequence("postalCode"));
-        city.setText(b.getCharSequence("city"));
-        coldRes.setChecked(b.getBoolean("coldRes"));
-        heatRes.setChecked(b.getBoolean("heatRes"));
-        coronaMode.setChecked(b.getBoolean("coronaMode"));
+    private void setTextFields() {
+        JSONRequestUser jsonRequestUser = new JSONRequestUser();
+        Person person = jsonRequestUser.getUserRequest();
+
+        firstName.setText(person.getFirstName());
+        country.setText(person.getCountryCode());
+        postalCode.setText(String.valueOf(person.getPostalCode()));
+        city.setText(person.getCity());
+        coldRes.setChecked(person.getColdSensitive());
+        heatRes.setChecked(person.getHeatSensitive());
+        coronaMode.setChecked(person.getCoronaMode());
     }
 
-    private void goToSettingsShowActivity(Bundle b) {
+    private void goToSettingsShowActivity() {
         Intent intent = new Intent(this, SettingsShowActivity.class);
-        intent.putExtras(b);
         startActivity(intent);
     }
 
