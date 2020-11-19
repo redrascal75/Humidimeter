@@ -1,6 +1,9 @@
 package de.school.humidimeter.logic;
 
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +22,9 @@ import java.time.format.DateTimeFormatter;
 public class JSONRequestUser {
 
     private static final String TAG = "JSONRequestUser";
-    String baseUrl = "http://10.0.2.2:8080";
+    //String baseUrl = "http://10.0.2.2:8080";
+    String baseUrl = "http://172.20.10.2:8080";
+
 
     private static HttpURLConnection connection;
     private BufferedReader reader;
@@ -27,6 +32,7 @@ public class JSONRequestUser {
     StringBuffer responseContent = new StringBuffer();
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Person getUserRequest() {
         Person person = null;
         try {
@@ -226,14 +232,7 @@ public class JSONRequestUser {
         return ventRecommondation;
     }
 
-    private int parseVentilation(String toString) {
-        int lastBracket = toString.lastIndexOf("]");
-        String ventRecom = toString.substring(lastBracket + 1);
-
-        Log.d(TAG, "##################parseVentilation: " + ventRecom);
-        return Integer.parseInt(ventRecom);
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void deleteUserAccount() {
         OutputStreamWriter out;
         Person person = getUserRequest();
@@ -268,6 +267,7 @@ public class JSONRequestUser {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private Person parseUser(String responseBody) throws JSONException {
         Person person = new Person();
         JSONArray albums = new JSONArray(responseBody);
@@ -288,6 +288,7 @@ public class JSONRequestUser {
         return person;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private String parseDate(String strLastVentilation) {
         if (strLastVentilation == null || strLastVentilation.equals("null")) {
             return null;
@@ -312,5 +313,13 @@ public class JSONRequestUser {
 //        Log.d(TAG, "hour: " + hour);
 //        Log.d(TAG, "min: " + min);
         return time + " Uhr, " + date;
+    }
+
+    private int parseVentilation(String toString) {
+        int lastBracket = toString.lastIndexOf("]");
+        String ventRecom = toString.substring(lastBracket + 1);
+
+        Log.d(TAG, "##################parseVentilation: " + ventRecom);
+        return Integer.parseInt(ventRecom);
     }
 }

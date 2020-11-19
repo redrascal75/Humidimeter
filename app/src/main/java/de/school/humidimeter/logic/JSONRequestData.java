@@ -15,7 +15,8 @@ import java.net.URL;
 public class JSONRequestData {
 
     private static final String TAG = "JSONRequestData";
-    String baseUrl = "http://10.0.2.2:8080";
+//    String baseUrl = "http://10.0.2.2:8080";
+    String baseUrl = "http://172.20.10.2:8080";
 
     private static HttpURLConnection connection;
     private BufferedReader reader;
